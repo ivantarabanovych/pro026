@@ -1,8 +1,19 @@
-function greet(){
-    console.log("say hello!");
-}
+const button = document.getElementById('button-check');
+    button.addEventListener('click', function(){
+        alert('check-in');
+});
 
-setTimeout(greet, 2000);
+const element = document.getElementById('some-element');
+element.addEventListener('mouseover', function(){
+    element.style.color = 'red';
+});
 
-// Спочатку JS виконає всі синхронні завдання, а потім, через 2000 мс, викличе функцію greet з черги з допомогою циклу подій.
-// Цикл подій JavaScript виконує синхронний код спочатку, а асинхронні завдання, такі як setTimeout, ставить у чергу і обробляє їх після завершення основного потоку, коли стек викликів порожній.
+const input = document.getElementById('finder');
+input.addEventListener('focus', function(){
+    console.log('find somesting tralalala...');
+})
+
+document.addEventListener('keypress', function(event){
+    console.log(`key presses: ${event.key}`);
+    
+})
