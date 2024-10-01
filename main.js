@@ -1,19 +1,9 @@
-const button = document.getElementById('button-check');
-    button.addEventListener('click', function(){
-        alert('check-in');
-});
+"Нульова затримка" у функції setTimeout означає використання значення затримки рівного 0 мс, як у цьому коді та це не означає, що код виконається миттєво:
 
-const element = document.getElementById('some-element');
-element.addEventListener('mouseover', function(){
-    element.style.color = 'red';
-});
+setTimeout(function() {
+  console.log('Цей код виконається пізніше');
+}, 0);
 
-const input = document.getElementById('finder');
-input.addEventListener('focus', function(){
-    console.log('find somesting tralalala...');
-})
+"Нульова затримка" насправді відкладає виконання функції до завершення поточного виконання синхронного коду і до тих пір, поки не буде очищена черга завдань (callback queue) в циклі подій (event loop).
 
-document.addEventListener('keypress', function(event){
-    console.log(`key presses: ${event.key}`);
-    
-})
+Навіть із затримкою в 0 мс, функція буде виконана лише після того, як всі інші поточні синхронні операції завершаться, і на черзі не залишиться жодних мікротасків (наприклад, промісів). Це зручно для планування асинхронних операцій, які потрібно виконати після завершення поточного блоку коду.
